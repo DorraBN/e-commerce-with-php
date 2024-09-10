@@ -21,6 +21,7 @@ $prix = "";
 $errorMessage = "";
 $successMessage = "";
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nom = $_POST["nom"];
     $description = $_POST["description"];
