@@ -13,22 +13,15 @@
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
-    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/templatemo-hexashop.css">
 
-    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/owl-carousel.css">
 
-    <link rel="stylesheet" href="styles.css">
-<!--
-
-TemplateMo 571 Hexashop
-
-https://templatemo.com/tm-571-hexashop
-
--->
+<link rel="stylesheet" href="css/lightbox.css">
     </head>
     
     <body>
@@ -38,7 +31,7 @@ https://templatemo.com/tm-571-hexashop
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+  
                         <a href="index.html" class="logo">
                             <img src="assets/logo.png">
                         </a>
@@ -190,119 +183,80 @@ https://templatemo.com/tm-571-hexashop
 
     <!-- ***** Men Area Starts ***** -->
     <section class="section" id="men">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h2>Men's Latest</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h2>Men's Latest</h2>
+                    <span>Details to details is what makes Hexashop different from the other themes.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="men-item-carousel">
+                    <div class="owl-men-item owl-carousel">
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $database = "e-commerce";
+                        $connection = new mysqli($servername, $username, $password, $database);
+
+                        // Check connection
+                        if ($connection->connect_error) {
+                            die("Connection failed: " . $connection->connect_error);
+                        }
+
+                        // Fetch products from database
+                        $sql = "SELECT * FROM produits";
+                        $result = $connection->query($sql);
+
+                        // Check if the query was successful
+                        if (!$result) {
+                            die("Query failed: " . $connection->error);
+                        }
+
+                        // Display products
+                        while ($row = $result->fetch_assoc()) {
+                            echo "
+                            <div class='item'>
+                                <div class='thumb'>
+                                    <div class='hover-content'>
+                                        <ul>
+                                            <li><a href='single-product.html'><i class='fa fa-eye'></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-star'></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-shopping-cart'></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src='./dashboard/uploads/$row[image_url] ' alt=''>
+                                </div>
+                                <div class='down-content'>
+                                    <h4>" . htmlspecialchars($row['nom']) . "</h4>
+                                    <span>$" . htmlspecialchars($row['prix']) . "</span>
+                                    <ul class='stars'>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                    </ul>
+                                </div>
+                            </div>";
+                        }
+
+                        // Close connection
+                        $connection->close();
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="men-item-carousel">
-                        <div class="owl-men-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/men-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/men-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Air Force 1 X</h4>
-                                    <span>$90.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/men-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Love Nana ‘20</h4>
-                                    <span>$150.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/men-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
+
     <!-- ***** Men Area Ends ***** -->
 
     <!-- ***** Women Area Starts ***** -->
@@ -318,108 +272,69 @@ https://templatemo.com/tm-571-hexashop
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="women-item-carousel">
-                        <div class="owl-women-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="men-item-carousel">
+                    <div class="owl-men-item owl-carousel">
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $database = "e-commerce";
+                        $connection = new mysqli($servername, $username, $password, $database);
+
+                        // Check connection
+                        if ($connection->connect_error) {
+                            die("Connection failed: " . $connection->connect_error);
+                        }
+
+                        // Fetch products from database
+                        $sql = "SELECT * FROM produits";
+                        $result = $connection->query($sql);
+
+                        // Check if the query was successful
+                        if (!$result) {
+                            die("Query failed: " . $connection->error);
+                        }
+
+                        // Display products
+                        while ($row = $result->fetch_assoc()) {
+                            echo "
+                            <div class='item'>
+                                <div class='thumb'>
+                                    <div class='hover-content'>
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-eye'></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-star'></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-shopping-cart'></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/women-01.jpg" alt="">
+                                    <img src='./dashboard/uploads/$row[image_url] ' alt=''>
                                 </div>
-                                <div class="down-content">
-                                    <h4>New Green Jacket</h4>
-                                    <span>$75.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
+                                <div class='down-content'>
+                                    <h4>" . htmlspecialchars($row['nom']) . "</h4>
+                                    <span>$" . htmlspecialchars($row['prix']) . "</span>
+                                    <ul class='stars'>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/women-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Dress</h4>
-                                    <span>$45.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/women-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Spring Collection</h4>
-                                    <span>$130.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/women-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                            </div>";
+                        }
+
+                        // Close connection
+                        $connection->close();
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- ***** Women Area Ends ***** -->
 
     <!-- ***** Kids Area Starts ***** -->
@@ -435,108 +350,70 @@ https://templatemo.com/tm-571-hexashop
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="kid-item-carousel">
-                        <div class="owl-kid-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="men-item-carousel">
+                    <div class="owl-men-item owl-carousel">
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $database = "e-commerce";
+                        $connection = new mysqli($servername, $username, $password, $database);
+
+                        // Check connection
+                        if ($connection->connect_error) {
+                            die("Connection failed: " . $connection->connect_error);
+                        }
+
+                        // Fetch products from database
+                        $sql = "SELECT * FROM produits";
+                        $result = $connection->query($sql);
+
+                        // Check if the query was successful
+                        if (!$result) {
+                            die("Query failed: " . $connection->error);
+                        }
+
+                        // Display products
+                        while ($row = $result->fetch_assoc()) {
+                            echo "
+                            <div class='item'>
+                                <div class='thumb'>
+                                    <div class='hover-content'>
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-eye'></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-star'></i></a></li>
+                                            <li><a href='single-product.html'><i class='fa fa-shopping-cart'></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/kid-01.jpg" alt="">
+                                    <img src='./dashboard/uploads/$row[image_url] ' alt=''>
                                 </div>
-                                <div class="down-content">
-                                    <h4>School Collection</h4>
-                                    <span>$80.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
+                                <div class='down-content'>
+                                    <h4>" . htmlspecialchars($row['nom']) . "</h4>
+                                    <span>$" . htmlspecialchars($row['prix']) . "</span>
+                                    <ul class='stars'>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
+                                        <li><i class='fa fa-star'></i></li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/kid-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Summer Cap</h4>
-                                    <span>$12.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/kid-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Kid</h4>
-                                    <span>$30.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/kid-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                            </div>";
+                        }
+
+                        // Close connection
+                        $connection->close();
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<button class=" btn btn-primary" style="margin-left :750px;" ><a href="produits .php" style="color:#fff;text-decoration:none;"> Voir plus</a></button>
+
     <!-- ***** Kids Area Ends ***** -->
 
     <!-- ***** Explore Area Starts ***** -->

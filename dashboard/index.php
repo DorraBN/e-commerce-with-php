@@ -236,69 +236,13 @@
         </div>
       </header>
 
-      <!--main-->
-      <main>
-        <h2 class="dash-title">Overview</h2>
-
-        <!--cards-->
-        <div class="dash-cards">
-            <div class="card-single">
-                <div class="card-body">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/>
-                          </svg>
-                    </span>
-                    <div>
-                        <h5>To-do</h5>
-                        <h4>1,098</h4>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="#">View all</a>
-                </div>
-            </div>
-
-            <div class="card-single">
-                <div class="card-body">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"/>
-                          </svg>
-                    </span>
-                    <div>
-                        <h5>Pending</h5>
-                        <h4>397</h4>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="#">View all</a>
-                </div>
-            </div>
-
-            <div class="card-single">
-                <div class="card-body">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                          </svg>
-                    </span>
-                    <div>
-                        <h5>Processed</h5>
-                        <h4>701</h4>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="#">View all</a>
-                </div>
-            </div>
-        </div>
-
+    
         <section class="recent">
             <div class="activity-grid">
                 <div class="activity-card">
                     <h3>Recent Products</h3>
 
+                    <button class=" btn btn-primary" style="margin-left :750px;" ><a href="add.php" style="color:#fff;text-decoration:none;"> Ajouter un produit</a></button>
                     <table>
                         <thead>
                             <tr>
@@ -329,7 +273,7 @@
 while($row=$result->fetch_assoc()){
     echo"
     <tr>
- <td><img src='$row[image_url]' alt='Image' style='width:100px; height:auto;'></td>
+ <td><img src='uploads/$row[image_url]' alt='Image' style='width:100px; height:auto;'></td>
     <td>$row[nom]</td>
     <td>$row[marque]</td>
        <td>$row[description]</td>
@@ -337,9 +281,9 @@ while($row=$result->fetch_assoc()){
     <td>$row[prix]</td>
     
     <td>
-        <a href='/project/edit.php?id=$row[id]' class='btn btn-primary btn-sm'>edit</a>
-        <a href='/project/delete.php?id=$row[id]'class='btn btn-danger btn-sm'>delete</a>
-        <a href='/project/delete.php?id=$row[id]'class='btn btn-necessary btn-sm'>view</a>
+        <a href='edit.php?id=$row[id]' class='btn btn-primary btn-sm'>edit</a>
+        <a href='../backend/delete.php?id=$row[id]'class='btn btn-danger btn-sm'>delete</a>
+        <a href='../backend/view.php?id=$row[id]'class='btn btn-necessary btn-sm'>view</a>
     </td>
 </tr>
     ";
