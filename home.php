@@ -32,13 +32,7 @@ https://templatemo.com/tm-571-hexashop
     </head>
     
     <body>
-    
-    <!-- ***** Preloader Start ***** -->
-   
-    <!-- ***** Preloader End ***** -->
-    
-    
-    <!-- ***** Header Area Start ***** -->
+  
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
@@ -48,8 +42,7 @@ https://templatemo.com/tm-571-hexashop
                         <a href="index.html" class="logo">
                             <img src="assets/logo.png">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                     
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#men">Men's</a></li>
@@ -73,7 +66,7 @@ https://templatemo.com/tm-571-hexashop
                                     <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li class="scroll-to-section"><a href="#explore">Dashboard</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

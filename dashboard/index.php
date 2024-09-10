@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dylut2000</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <input type="checkbox" id="sidebar-toggle" />
@@ -47,11 +47,10 @@
         </label>
       </div>
 
-      <!--sidebar-menu-->
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="#">
+            <a href="../home.php">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
