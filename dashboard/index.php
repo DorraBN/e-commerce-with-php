@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -299,84 +302,49 @@
                         <thead>
                             <tr>
                                 <th>Project</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Assigned To</th>
-                                <th>Status</th>
+                                <th>nom</th>
+                                <th>marque</th>
+                                <th>categorie</th>
+                                <th>prix</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Stocko App Dev</td>
-                                <td>1 Jan, 2021</td>
-                                <td>2 Feb, 2021</td>
-                                <td class="td-team">
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                </td>
-                                <td>
-                                    <span class="badge success">Success</span>
-                                </td>
-                            </tr>
+                        <?php
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="e-commerce";
+        $connection=new mysqli($servername,$username,$password,$database);
+        if($connection->connect_error){
+            die("connection failed:".$connection->connect_error);
+        }
+        $sql="SELECT * FROM produits";
+        $result=$connection->query($sql);
+        if(!$result)
+        {
+            die("invalid:".$connection->error);
+        }
+while($row=$result->fetch_assoc()){
+    echo"
+    <tr>
+    <td>$row[image_url]</td>
+    <td>$row[nom]</td>
+    <td>$row[marque]</td>
+    <td>$row[categorie]</td>
+    <td>$row[prix]</td>
+    
+    <td>
+        <a href='/project/edit.php?id=$row[id]' class='btn btn-primary btn-sm'>edit</a>
+        <a href='/project/delete.php?id=$row[id]'class='btn btn-danger btn-sm'>delete</a>
+    </td>
+</tr>
+    ";
+}
+        
+        
+        ?>
 
-                            <tr>
-                                <td>Linkskills App Dev</td>
-                                <td>27 Feb, 2021</td>
-                                <td>2 Apl, 2021</td>
-                                <td class="td-team">
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                </td>
-                                <td>
-                                    <span class="badge warning">Processing</span>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>PWD recruitement</td>
-                                <td>1 Jun, 2021</td>
-                                <td>2 Dec, 2021</td>
-                                <td class="td-team">
-                                    <div class="img-1"></div>
-                                </td>
-                                <td>
-                                    <span class="badge warning">Processing</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>DataScience Bootcamp</td>
-                                <td>1 Jun, 2021</td>
-                                <td>2 Dec, 2021</td>
-                                <td class="td-team">
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                </td>
-                                <td>
-                                    <span class="badge success">Success</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>POES development</td>
-                                <td>1 Jun, 2021</td>
-                                <td>2 Dec, 2021</td>
-                                <td class="td-team">
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                    <div class="img-1"></div>
-                                </td>
-                                <td>
-                                    <span class="badge success">Success</span>
-                                </td>
-                            </tr>
-                        </tbody>
+    </tbody>
                     </table>
                 </div>
 
